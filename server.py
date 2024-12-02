@@ -4,7 +4,7 @@ import socket
 server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
 # Define the host and port
-host = '216.24.57.4'  # This allows the server to be accessible from any IP address
+host = '127.0.0.1'  # This allows the server to be accessible from any IP address
 port = 65530  # You can choose any port
 
 # Bind the socket to the host and port
