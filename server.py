@@ -1,11 +1,12 @@
 import socket
+import os
 
 # Create a socket object
 server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
-# Define the host and port
-host = '127.0.0.1'  # This allows the server to be accessible from any IP address
-port = 65530  # You can choose any port
+# Get the host and port from environment variables
+host = '0.0.0.0'  # This allows the server to be accessible from any IP address
+port = int(os.environ.get("PORT", 5000))  # Use the port specified in the environment variable or default to 5000
 
 # Bind the socket to the host and port
 server_socket.bind((host, port))
@@ -16,7 +17,6 @@ print(f"Server listening on port {port}...")
 
 while True:
     # Accept a connection from a client
-    
     client_socket, client_address = server_socket.accept()
     print(f"Connection from {client_address}")
 
